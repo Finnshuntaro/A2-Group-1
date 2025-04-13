@@ -37,6 +37,8 @@ public class PlayerInteract : MonoBehaviour
                 if (inputManager.onFoot.Interact.triggered)
                 {
                     interactble.BaseInteract();
+
+                    InteractionLogger.Log("Player interacted with: " + interactble.gameObject.name);
                 }
             }
         }
