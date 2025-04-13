@@ -831,7 +831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -140.7}
+  m_AnchoredPosition: {x: 0, y: -120.42}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &498202063
@@ -863,8 +863,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294901998
+  m_fontColor: {r: 0.9352908, g: 0, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1904,7 +1904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d459dd0d11b61f44e8166468b9431c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Use Create Cube
+  promptMessage: Press 'E' to Use Create Cube
   cubePrefab: {fileID: 727719105}
   spawnPoint: {fileID: 78978652}
 --- !u!1 &1557361067
@@ -2606,7 +2606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476bd3204b30ad14caaa7dddd60d6ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Use Hide and Show
+  promptMessage: Press 'E' to Use Hide and Show
   objectHA: {fileID: 543321510}
 --- !u!1 &1988927531
 GameObject:
@@ -2658,7 +2658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2951,7 +2951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52bc46296e8a73947afa95238ce2c0c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Use Delete Cubes
+  promptMessage: Press 'E' to Use Delete Cubes
 --- !u!1001 &3626579104761954987
 PrefabInstance:
   m_ObjectHideFlags: 0
