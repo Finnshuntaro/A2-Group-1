@@ -290,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstepSound: {fileID: 8300000, guid: 6892eb9a408f0fe4db7161a99ed9b57f, type: 3}
   footstepInterval: 0.5
-  playerMotor: {fileID: 0}
+  playerMotor: {fileID: 184086958}
   minPitch: 0.9
   maxPitch: 1.5
 --- !u!82 &184086955
@@ -390,6 +390,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &184086958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6909400116000485542, guid: dff3f02e4fa11f64abb1f0e8e89f59c3, type: 3}
+  m_PrefabInstance: {fileID: 237525579}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184086944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef354be021227c4aa5141b93ce7fa0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &237525579
 PrefabInstance:
   m_ObjectHideFlags: 0

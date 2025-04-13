@@ -40,6 +40,7 @@ public class FootstepsCode : MonoBehaviour
 
     private void PlayFootstepSound()
     {
+        // Makes the pitch of the audio slightly random to reduce Sound Fatigue
         if (footstepSound != null && audioSource != null)
         {
             audioSource.pitch = Random.Range(minPitch, maxPitch);
