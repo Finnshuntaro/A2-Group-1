@@ -21,6 +21,7 @@ public class Dialogue1 : MonoBehaviour
 
     private void Update()
     {
+        // Listen for input to proceed dialogue with the 'F' key
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (textComponent.text == lines[index])
@@ -35,20 +36,21 @@ public class Dialogue1 : MonoBehaviour
         }
     }
 
+    // This method is called by DialogueNPC when you want to start/restart the dialogue
     public void RestartDialogue()
     {
         StopAllCoroutines();
         index = 0;
-        textComponent.text = string.Empty; // <- Clear it here too, just in case
-        gameObject.SetActive(true);
-        isDialoguePlaying = true;
+        textComponent.text = string.Empty; // Clear it here just in case
+        gameObject.SetActive(true); // Show dialogue box
+        isDialoguePlaying = true; // Freeze player movement here
 
         StartCoroutine(StartTypingNextFrame());
     }
 
     private IEnumerator StartTypingNextFrame()
     {
-        yield return null; // wait 1 frame
+        yield return null; // wait 1 frame before starting the typing
         StartCoroutine(TypeLine());
     }
 
@@ -56,6 +58,7 @@ public class Dialogue1 : MonoBehaviour
     {
         textComponent.text = string.Empty;
 
+        // Type out each letter of the current line
         foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
@@ -63,6 +66,7 @@ public class Dialogue1 : MonoBehaviour
         }
     }
 
+    // Move to the next line when 'F' is pressed
     private void NextLine()
     {
         if (index < lines.Length - 1)
@@ -73,8 +77,8 @@ public class Dialogue1 : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false); // Hide when done
-            isDialoguePlaying = false;
+            gameObject.SetActive(false); // Hide dialogue box when finished
+            isDialoguePlaying = false; // Unfreeze player movement here
         }
     }
 }

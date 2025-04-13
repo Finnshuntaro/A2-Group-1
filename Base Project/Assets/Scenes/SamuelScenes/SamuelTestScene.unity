@@ -1068,7 +1068,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: ca0e06a269737e14dadcda700bf198cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Test
-  dialogueTrigger: {fileID: 122427941}
+  dialogueBox: {fileID: 122427941}
 --- !u!4 &2090527779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c84f90b925546254f983906fc58be2ee, type: 3}
@@ -1432,10 +1432,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6909400116000485542, guid: dff3f02e4fa11f64abb1f0e8e89f59c3, type: 3}
+      propertyPath: isGrounded
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7185463865702127385, guid: dff3f02e4fa11f64abb1f0e8e89f59c3, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7572205484575311131, guid: dff3f02e4fa11f64abb1f0e8e89f59c3, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 122427941}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

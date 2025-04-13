@@ -11,6 +11,9 @@ public class InputManager : MonoBehaviour
     private PlayerMotor motor;
     private PlayerLook look;
 
+    public GameObject dialogueBox;
+    private Dialogue1 dialogueScript;  // Reference to the Dialogue1 script
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -23,10 +26,18 @@ public class InputManager : MonoBehaviour
         onFoot.Jump.performed += ctx => motor.Jump();
     }
 
+    void Start()
+    {
+        dialogueScript = dialogueBox.GetComponent<Dialogue1>();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
+        if (dialogueScript == null || !dialogueScript.isDialoguePlaying)
+        {
+            motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
+        }
     }
 
     private void LateUpdate()
