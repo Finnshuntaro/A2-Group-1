@@ -148,3 +148,22 @@
 [14/04/2025 1:34:28 PM] Player interacted with: NPC (1)
 [14/04/2025 1:34:29 PM] Player interacted with: NPC (1)
 [14/04/2025 1:34:31 PM] Player interacted with: NPC
+[14/04/2025 2:56:14 PM] Player interacted with: NPC1
+[14/04/2025 2:56:14 PM] Player interacted with: NPC1
+[14/04/2025 2:56:15 PM] Player interacted with: NPC2
+[14/04/2025 3:06:37 PM] Player interacted with: NPC1
+[14/04/2025 3:06:37 PM] Player interacted with: NPC1
+[14/04/2025 3:06:38 PM] Player interacted with: NPC1
+[14/04/2025 3:06:38 PM] Player interacted with: NPC1
+[14/04/2025 3:06:39 PM] Player interacted with: NPC1
+[14/04/2025 3:06:40 PM] Player interacted with: NPC1
+[14/04/2025 3:06:40 PM] Player interacted with: NPC1
+[14/04/2025 3:13:17 PM] Player interacted with: NPC1
+[14/04/2025 3:13:21 PM] Player interacted with: NPC2
+[14/04/2025 3:13:23 PM] Player interacted with: NPC1
+[14/04/2025 3:34:18 PM] Player interacted with: NPC1
+[14/04/2025 3:34:24 PM] Player interacted with: NPC1
+[14/04/2025 3:34:24 PM] Player interacted with: NPC1
+[14/04/2025 3:34:27 PM] Player interacted with: NPC2
+[14/04/2025 3:37:10 PM] Player interacted with: NPC1
+[14/04/2025 3:37:25 PM] Player interacted with: NPC2
