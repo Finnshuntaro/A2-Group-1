@@ -14,11 +14,13 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;   // Queue to hold all the sentences of dialogue
     private bool isDialogueActive = false;  // Flag to check if dialogue is active
     private Coroutine typingCoroutine; // Keeps track of the currently running typing effect so it can be stopped if needed
+    private string currentSentence; // Stores the current sentence being typed
 
     void Start()
     {
         sentences = new Queue<string>();
         dialoguePanel.SetActive(false);  // Initially hide the dialogue panel
+
     }
 
     // Method to start the dialogue for an NPC
@@ -60,18 +62,24 @@ public class DialogueManager : MonoBehaviour
     // Display the next sentence in the queue
     public void DisplayNextSentence()
     {
+        // If the dialogue is still typing, skip to the end of the sentence instead
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            dialogueText.text = currentSentence;
+            typingCoroutine = null;
+            return;
+        }
+
+        // Make sure there's actually dialogue left
         if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        string sentence = sentences.Dequeue();  // Get the next sentence from the queue
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-        }
-        typingCoroutine = StartCoroutine(TypeSentence(sentence));           // Display it in the dialogue box
+        currentSentence = sentences.Dequeue();  // Store current sentence for skipping
+        typingCoroutine = StartCoroutine(TypeSentence(currentSentence));
     }
 
     // End the dialogue when all sentences are displayed
