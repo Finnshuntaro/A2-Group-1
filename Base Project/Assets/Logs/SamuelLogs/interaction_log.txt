@@ -167,3 +167,16 @@
 [14/04/2025 3:34:27 PM] Player interacted with: NPC2
 [14/04/2025 3:37:10 PM] Player interacted with: NPC1
 [14/04/2025 3:37:25 PM] Player interacted with: NPC2
+[15/04/2025 11:41:43 AM] Player interacted with: Button
+[15/04/2025 11:41:43 AM] Player interacted with: Button
+[15/04/2025 11:41:43 AM] Player interacted with: Button
+[15/04/2025 11:41:43 AM] Player interacted with: Button
+[15/04/2025 11:41:44 AM] Player interacted with: Button
+[15/04/2025 11:41:47 AM] Player interacted with: NPC1
+[15/04/2025 11:41:50 AM] Player interacted with: NPC1
+[15/04/2025 11:41:52 AM] Player interacted with: NPC2
+[15/04/2025 12:11:51 PM] Player interacted with: NPC2
+[15/04/2025 12:11:53 PM] Player interacted with: NPC1
+[15/04/2025 12:16:15 PM] Player interacted with: NPC1
+[15/04/2025 12:16:22 PM] Player interacted with: NPC2
+[15/04/2025 12:39:54 PM] Player interacted with: NPC1
