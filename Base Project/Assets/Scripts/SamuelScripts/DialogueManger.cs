@@ -6,51 +6,49 @@ using TMPro;  // Use the TMPro namespace for TextMeshPro components
 
 public class DialogueManager : MonoBehaviour
 {
-    public GameObject dialoguePanel;   // The panel that will show the dialogue UI
-    public TextMeshProUGUI nameText;   // The TextMeshProUGUI component for displaying the NPC's name
-    public TextMeshProUGUI dialogueText; // The TextMeshProUGUI component for displaying the dialogue
-    public float textSpeed; // How fast the text is typed out in the dialogue box
+    public GameObject dialoguePanel;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI dialogueText;
+    private Queue<string> sentences;
+    private bool isDialogueActive = false;
+    private bool isTyping = false;
+    private Coroutine typingCoroutine;
 
-    private Queue<string> sentences;   // Queue to hold all the sentences of dialogue
-    private bool isDialogueActive = false;  // Flag to check if dialogue is active
-    private Coroutine typingCoroutine; // Keeps track of the currently running typing effect so it can be stopped if needed
-    private string currentSentence; // Stores the current sentence being typed
+    public float textSpeed = 0.03f; // You can tweak this
 
     void Start()
     {
         sentences = new Queue<string>();
-        dialoguePanel.SetActive(false);  // Initially hide the dialogue panel
-
+        dialoguePanel.SetActive(false);
     }
 
-    // Method to start the dialogue for an NPC
     public void StartDialogue(NPCScript npc)
     {
-        isDialogueActive = true;
-        dialoguePanel.SetActive(true);  // Show the dialogue panel
-        nameText.text = npc.npcName;    // Display the NPC's name in the UI
-        sentences.Clear();              // Clear any previous sentences
+        if (isDialogueActive) return;
 
-        // Add each sentence from the NPC's dialogue lines to the queue
+        isDialogueActive = true;
+        dialoguePanel.SetActive(true);
+        nameText.text = npc.npcName;
+        sentences = new Queue<string>();
+
         foreach (string sentence in npc.dialogueLines)
         {
             sentences.Enqueue(sentence);
         }
 
-        DisplayNextSentence();  // Display the first sentence
+        DisplayNextSentence();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isDialogueActive && Input.GetKeyDown(KeyCode.F))
         {
-            if (typingCoroutine != null)
+            if (isTyping)
             {
-                // Instantly finish typing the current line
+                // Skip typing and finish sentence immediately
                 StopCoroutine(typingCoroutine);
-                dialogueText.text = sentences.Peek(); // Show whole sentence
-                typingCoroutine = null;
+                dialogueText.text = currentSentence;
+                isTyping = false;
             }
             else
             {
@@ -59,46 +57,43 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    // Display the next sentence in the queue
+    string currentSentence = ""; // Store current sentence for skipping
+
     public void DisplayNextSentence()
     {
-        // If the dialogue is still typing, skip to the end of the sentence instead
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-            dialogueText.text = currentSentence;
-            typingCoroutine = null;
-            return;
-        }
-
-        // Make sure there's actually dialogue left
         if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        currentSentence = sentences.Dequeue();  // Store current sentence for skipping
+        currentSentence = sentences.Dequeue();
+
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+
         typingCoroutine = StartCoroutine(TypeSentence(currentSentence));
     }
 
-    // End the dialogue when all sentences are displayed
-    private void EndDialogue()
+    IEnumerator TypeSentence(string sentence)
     {
-        isDialogueActive = false;
-        dialoguePanel.SetActive(false);  // Hide the dialogue panel
-    }
-
-    private IEnumerator TypeSentence(string sentence) // 
-    {
+        isTyping = true;
         dialogueText.text = "";
 
-        foreach (char letter in sentence)
+        foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(textSpeed);
         }
 
-        typingCoroutine = null; // Reset when done
+        isTyping = false;
+    }
+
+    private void EndDialogue()
+    {
+        isDialogueActive = false;
+        dialoguePanel.SetActive(false);
     }
 }
